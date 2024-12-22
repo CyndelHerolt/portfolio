@@ -57,6 +57,6 @@ jobs:
       with:
         host: 185.216.25.179
         username: mmi21h05
-        key: /home/runner/.ssh/id_rsa
+        key: ${{ secrets.SSH_KEY }}
         script: |
           rsync -avz $GITHUB_WORKSPACE/dist/ /home/mmi21h05/public_html/portfolio/
