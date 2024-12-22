@@ -57,7 +57,7 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <div id="about" class="container flex flex-col justify-center items-center mt-12">
+  <div id="about" class="container flex justify-center items-center mt-12 px-3">
     <div
       ref="cardRef"
       class="card rounded-xl bg-yellow-400 h-60 flex flex-col justify-between gap-4 shadow-md p-4"
@@ -108,7 +108,7 @@ onUnmounted(() => {
           <div class="font-bold uppercase">Cyndel Herolt</div>
         </div>
     </div>
-    <small ref="glossaireRef" class="opacity-60 mt-4 absolute bottom-0 glossaire">*Bachelor Univerisitaire de Technologie des Métiers du Multimédia et de l'Internet</small>
+    <small ref="glossaireRef" class="opacity-60 mt-4 absolute bottom-0 glossaire px-3">*Bachelor Univerisitaire de Technologie des Métiers du Multimédia et de l'Internet</small>
   </div>
 </template>
 
@@ -121,6 +121,30 @@ onUnmounted(() => {
 .card {
   transition: transform 1s ease-out, box-shadow 0.3s ease-out;
   transform-style: preserve-3d;
-  width: 375px;
+  flex: 1;
+}
+
+@media (max-width: 480px) { /* Téléphones */
+  .card {
+    flex: 0.9;
+  }
+}
+
+@media (min-width: 481px) and (max-width: 768px) { /* Tablettes */
+  .card {
+    flex: 0.6;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1200px) { /* PC */
+  .card {
+    flex: 0.35;
+  }
+}
+
+@media (min-width: 1201px) { /* Grands écrans */
+  .card {
+    flex: 0.3;
+  }
 }
 </style>
