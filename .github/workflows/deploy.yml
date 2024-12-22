@@ -37,4 +37,4 @@ jobs:
         username: mmi21h05
         key: ${{ secrets.SSH_KEY }}
         script: |
-          rsync -avz $GITHUB_WORKSPACE/dist/ /home/mmi21h05/public_html/portfolio/
+          rsync -avz $GITHUB_WORKSPACE/../dist/ /home/mmi21h05/public_html/portfolio/
