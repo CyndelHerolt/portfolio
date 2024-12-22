@@ -38,7 +38,7 @@ jobs:
           cd /home/mmi21h05/public_html/portfolio
           if [ ! -f package.json ]; then
             echo "package.json not found, copying from source"
-            cp /path/to/source/package.json .
+            cp ../package.json .
           fi
           npm install --production
           if ! command -v pm2 &> /dev/null; then
