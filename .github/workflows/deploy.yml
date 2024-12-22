@@ -33,13 +33,9 @@ jobs:
         mkdir -p ~/.ssh
         ssh-keyscan 185.216.25.179 >> ~/.ssh/known_hosts
         ssh -i private_key -o StrictHostKeyChecking=no mmi21h05@185.216.25.179 "exit"
-        rsync -avz -e "ssh -i private_key" --delete dist/ mmi21h05@185.216.25.179:/home/mmi21h05/public_html/portfolio
+        rsync -avz -e "ssh -i private_key" --delete dist/ package.json mmi21h05@185.216.25.179:/home/mmi21h05/public_html/portfolio
         ssh -i private_key mmi21h05@185.216.25.179 << 'EOF'
           cd /home/mmi21h05/public_html/portfolio
-          if [ ! -f package.json ]; then
-            echo "package.json not found, copying from source"
-            cp ../package.json .
-          fi
           npm install --production
           if ! command -v pm2 &> /dev/null; then
             npm install -g pm2
