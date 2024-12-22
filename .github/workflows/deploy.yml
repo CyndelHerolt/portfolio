@@ -41,7 +41,7 @@ jobs:
       shell: bash
 
     - name: Add SSH key
-      run: echo "${{ secrets.SSH_KEY }}" > /home/runner/.ssh/id_rsa
+      run: echo "${{ secrets.SSH_KEY }}" | tr -d '\r' > /home/runner/.ssh/id_rsa
       shell: bash
 
     - name: Set permissions for SSH key
