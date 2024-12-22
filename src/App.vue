@@ -2,6 +2,7 @@
 import { onMounted, ref } from 'vue'
 import HomeView from '@/views/HomeView.vue'
 import GlobalMenu from '@/components/GlobalMenu.vue'
+import SocialMedias from '@/components/SocialMedias.vue'
 
 onMounted(() => {
   let currentX = ref(0);
@@ -52,6 +53,8 @@ onMounted(() => {
     </div>
   </div>
   <div id="trace"></div>
+
+  <SocialMedias />
 </template>
 
 <style scoped>

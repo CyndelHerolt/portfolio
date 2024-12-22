@@ -2,7 +2,7 @@
 import { onMounted, onUnmounted, ref } from 'vue'
 import LandingLayout from '@/components/LandingPage.vue'
 import IdCard from '@/components/IdCard.vue'
-import Skills from '@/components/Skills.vue'
+import Skills from '@/components/SkillsCards.vue'
 
 </script>
 
