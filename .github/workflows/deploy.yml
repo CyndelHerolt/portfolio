@@ -36,15 +36,23 @@ jobs:
     - name: Check dist directory before deploy
       run: ls -la $GITHUB_WORKSPACE/dist
 
+    - name: Add SSH key
+      run: echo "${{ secrets.SSH_KEY }}" > /home/runner/.ssh/id_rsa
+      shell: bash
+
+    - name: Set permissions for SSH key
+      run: chmod 600 /home/runner/.ssh/id_rsa
+      shell: bash
+
     - name: Debug SSH connection
       run: |
-        ssh -i ${{ secrets.SSH_KEY }} -o StrictHostKeyChecking=no mmi21h05@185.216.25.179 "echo 'SSH connection successful'"
+        ssh -i /home/runner/.ssh/id_rsa -o StrictHostKeyChecking=no mmi21h05@185.216.25.179 "echo 'SSH connection successful'"
 
     - name: Deploy to server
       uses: appleboy/ssh-action@v0.1.5
       with:
         host: 185.216.25.179
         username: mmi21h05
-        key: ${{ secrets.SSH_KEY }}
+        key: /home/runner/.ssh/id_rsa
         script: |
           rsync -avz $GITHUB_WORKSPACE/dist/ /home/mmi21h05/public_html/portfolio/
