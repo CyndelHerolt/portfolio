@@ -27,7 +27,13 @@ jobs:
     - name: Build project
       run: npm run build
 
+    - name: List project directory
+      run: ls -la $GITHUB_WORKSPACE
+
     - name: Verify build output
+      run: ls -la $GITHUB_WORKSPACE/dist
+
+    - name: Check dist directory before deploy
       run: ls -la $GITHUB_WORKSPACE/dist
 
     - name: Deploy to server
