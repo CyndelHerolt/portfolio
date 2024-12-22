@@ -7,7 +7,7 @@ import Skills from '@/components/Skills.vue'
 </script>
 
 <template>
-  <main>
+  <main class="w-screen flex flex-col items-center">
     <LandingLayout class="section h-screen w-full" />
     <IdCard class="section h-screen w-full" />
     <Skills class="section h-screen w-full" />

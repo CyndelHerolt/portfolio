@@ -19,7 +19,7 @@ onUnmounted(() => window.removeEventListener('scroll', handleScroll));
 </script>
 
 <template>
-  <div class="flex justify-center items-start h-screen pt-12">
+  <div class="flex justify-center items-start pt-12">
     <h1 ref="titleRef" class="uppercase select-none text-[10rem] font-narse font-extrabold text-pink-500 leading-[80%] mr-4">cyndel herolt</h1>
     <img ref="imgRef" src="@/assets/images/devil2.webp" alt="illustration devil" class="w-[300px] absolute bottom-0">
     <div class="flex flex-col items-start mt-12">

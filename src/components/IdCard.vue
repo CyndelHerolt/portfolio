@@ -57,7 +57,7 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <div id="about" class="container flex flex-col justify-center items-center w-full mt-12">
+  <div id="about" class="container flex flex-col justify-center items-center mt-12">
     <div
       ref="cardRef"
       class="card rounded-xl bg-yellow-400 h-60 flex flex-col justify-between gap-4 shadow-md p-4"

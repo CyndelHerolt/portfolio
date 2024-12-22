@@ -3,7 +3,7 @@
 </script>
 
 <template>
-  <div class="container flex flex-col justify-start items-center mt-44 pt-6 w-screen h-screen" id="skills">
+  <div class="container flex flex-col justify-start items-center mt-44 pt-6" id="skills">
 
     <div class="font-narse text-teal-500 px-8 uppercase text-8xl h-1/4">skills</div>
 
@@ -20,7 +20,7 @@
         </div>
       </div>
 
-      <div class="flex justify-center gap-2 w-1/2 h-4/4 px-6 skills-grid">
+      <div class="flex justify-center gap-2 w-full h-4/4 px-6 skills-grid">
         <div class="bg-orange-500 h-full w-1/2 rounded-tr-3xl rounded-bl-3xl px-8 py-4 flex flex-col gap-2">
           <div class="card-title uppercase font-black text-black text-2xl">dev stack</div>
           <ul class="text-black relative">
@@ -124,16 +124,16 @@
   .cards .card img {
     width: 100px;
   }
-
-  .skills-grid {
-    width: 100vw;
-  }
 }
 
 @media (min-width: 768px) {
   .font-narse {
     font-size: 10rem;
     line-height: normal;
+  }
+
+  #skills {
+    width: 40%;
   }
 }
 </style>
