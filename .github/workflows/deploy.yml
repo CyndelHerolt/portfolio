@@ -1,4 +1,4 @@
-name: Deploy to Server
+name: Deploy Vue.js App
 
 on:
   push:
@@ -6,13 +6,10 @@ on:
       - main
 
 jobs:
-  deploy:
+  build:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Print GITHUB_WORKSPACE
-      run: echo "GITHUB_WORKSPACE is $GITHUB_WORKSPACE"
-
     - name: Checkout code
       uses: actions/checkout@v2
 
@@ -24,39 +21,19 @@ jobs:
     - name: Install dependencies
       run: npm install
 
-    - name: Build project
+    - name: Build the app
       run: npm run build
 
-    - name: List project directory
-      run: ls -la $GITHUB_WORKSPACE
-
-    - name: Verify build output
-      run: ls -la $GITHUB_WORKSPACE/dist
-
-    - name: Check dist directory before deploy
-      run: ls -la $GITHUB_WORKSPACE/dist
-
-    - name: Create .ssh directory
-      run: mkdir -p /home/runner/.ssh
-      shell: bash
-
-    - name: Decode and add SSH key
-      run: echo "${{ secrets.SSH_KEY }}" | base64 -d > /home/runner/.ssh/id_rsa
-      shell: bash
-
-    - name: Set permissions for SSH key
-      run: chmod 600 /home/runner/.ssh/id_rsa
-      shell: bash
-
-    - name: Debug SSH connection
-      run: |
-        ssh -i /home/runner/.ssh/id_rsa -o StrictHostKeyChecking=no mmi21h05@185.216.25.179 "echo 'SSH connection successful'"
-
     - name: Deploy to server
-      uses: appleboy/ssh-action@v0.1.5
-      with:
-        host: 185.216.25.179
-        username: mmi21h05
-        key_path: /home/runner/.ssh/id_rsa
-        script: |
-          rsync -avz $GITHUB_WORKSPACE/dist/ /home/mmi21h05/public_html/portfolio/
+      env:
+        SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+      run: |
+        echo "$SSH_PRIVATE_KEY" > private_key
+        chmod 600 private_key
+        rsync -avz -e "ssh -i private_key" --delete dist/ mmi21h05@185.216.25.179:/home/mmi21h05/public_html/portfolio
+        ssh -i private_key mmi21h05@185.216.25.179 << 'EOF'
+          cd /home/mmi21h05/public_html/portfolio
+          npm install --production
+          pm2 restart all
+        EOF
+      shell: bash
