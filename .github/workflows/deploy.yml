@@ -36,6 +36,10 @@ jobs:
     - name: Check dist directory before deploy
       run: ls -la $GITHUB_WORKSPACE/dist
 
+    - name: Debug SSH connection
+      run: |
+        ssh -i ${{ secrets.SSH_KEY }} -o StrictHostKeyChecking=no mmi21h05@185.216.25.179 "echo 'SSH connection successful'"
+
     - name: Deploy to server
       uses: appleboy/ssh-action@v0.1.5
       with:
