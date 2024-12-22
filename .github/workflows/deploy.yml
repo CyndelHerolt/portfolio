@@ -24,6 +24,9 @@ jobs:
     - name: Build project
       run: npm run build
 
+    - name: Verify build output
+      run: ls -la $GITHUB_WORKSPACE/dist
+
     - name: Deploy to server
       uses: appleboy/ssh-action@v0.1.5
       with:
@@ -31,4 +34,4 @@ jobs:
         username: mmi21h05
         key: ${{ secrets.SSH_KEY }}
         script: |
-          rsync -avz --exclude='public_html' $GITHUB_WORKSPACE/dist/ /home/mmi21h05/public_html/portfolio/
+          rsync -avz $GITHUB_WORKSPACE/dist/ /home/mmi21h05/public_html/portfolio/
