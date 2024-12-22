@@ -66,7 +66,7 @@
 
 .cards .card {
   transition: 0.5s;
-  transform: rotate(calc(var(--r) * 1deg));
+  transform: rotate(calc(var(--r) * -1deg));
 }
 
 .cards:hover .card {
