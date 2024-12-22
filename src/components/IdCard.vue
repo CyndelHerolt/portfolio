@@ -126,7 +126,7 @@ onUnmounted(() => {
 
 @media (max-width: 480px) { /* Téléphones */
   .card {
-    flex: 0.9;
+    flex: 1;
   }
 }
 
