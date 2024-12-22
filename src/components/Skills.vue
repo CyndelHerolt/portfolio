@@ -5,7 +5,7 @@
 <template>
   <div class="container flex flex-col justify-start items-center mt-44 pt-6" id="skills">
 
-    <div class="font-narse text-teal-500 px-8 uppercase text-8xl h-1/4">skills</div>
+    <div class="font-narse text-teal-500 px-8 uppercase text-7xl h-1/4 flex items-center">skills</div>
 
     <div class="flex flex-col items-center gap-10 w-full h-3/4">
       <div class="cards">
@@ -21,7 +21,7 @@
       </div>
 
       <div class="flex justify-center gap-2 w-full h-4/4 px-6 skills-grid">
-        <div class="bg-orange-500 h-full w-1/2 rounded-tr-3xl rounded-bl-3xl px-8 py-4 flex flex-col gap-2">
+        <div class="hardskill bg-orange-500 h-full w-1/2 rounded-tr-3xl rounded-bl-3xl px-8 py-4 flex flex-col gap-2">
           <div class="card-title uppercase font-black text-black text-2xl">dev stack</div>
           <ul class="text-black relative">
             <li class="sf">Symfony</li>
@@ -36,14 +36,14 @@
           </ul>
         </div>
         <div class="flex flex-col h-full w-1/2 gap-2">
-          <div class="bg-yellow-400 h-1/2 w-full rounded-tr-3xl rounded-bl-3xl px-8 py-4 flex flex-col gap-2">
+          <div class="hardskill bg-yellow-400 h-1/2 w-full rounded-tr-3xl rounded-bl-3xl px-8 py-4 flex flex-col gap-2">
             <div class="card-title uppercase font-black text-black text-2xl">graphisme</div>
             <ul class="text-black">
               <li>Suite Adobe Creative Cloud</li>
               <li>Figma</li>
             </ul>
           </div>
-          <div class="bg-violet-500 h-1/2 w-full rounded-br-3xl rounded-tl-3xl px-8 py-4">
+          <div class="hardskill bg-violet-500 h-1/2 w-full rounded-br-3xl rounded-tl-3xl px-8 py-4">
             <div class="card-title uppercase font-black text-white text-2xl">objectifs</div>
             <ul class="text-white">
               <li>Qualité</li>
@@ -123,6 +123,10 @@
 
   .cards .card img {
     width: 100px;
+  }
+
+  .hardskill {
+    padding: 1rem;
   }
 }
 
