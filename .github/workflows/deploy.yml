@@ -28,8 +28,10 @@ jobs:
       env:
         SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
       run: |
-        echo "$SSH_PRIVATE_KEY" > private_key
+        echo "$SSH_PRIVATE_KEY" | base64 --decode > private_key
         chmod 600 private_key
+        mkdir -p ~/.ssh
+        ssh-keyscan 185.216.25.179 >> ~/.ssh/known_hosts
         rsync -avz -e "ssh -i private_key" --delete dist/ mmi21h05@185.216.25.179:/home/mmi21h05/public_html/portfolio
         ssh -i private_key mmi21h05@185.216.25.179 << 'EOF'
           cd /home/mmi21h05/public_html/portfolio
