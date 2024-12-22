@@ -1,27 +1,20 @@
-<script setup>
-
-</script>
-
 <template>
-  <div class="container flex flex-col justify-start items-center mt-44 pt-6" id="skills">
-
+  <div class="container flex flex-col items-center mt-44 pt-6" id="skills">
     <div class="font-narse text-teal-500 px-8 uppercase text-7xl h-1/4 flex items-center">skills</div>
-
     <div class="flex flex-col items-center gap-10 w-full h-3/4">
-      <div class="cards">
-        <div data-text="initiative" style="--r:-15;" class="card pt-10 bg-yellow-400 border-4 border-yellow-600">
+      <div class="cards flex justify-center items-center w-full">
+        <div data-text="initiative" style="--r:-15;" class="card pt-8 bg-yellow-400 border-4 border-yellow-600 flex-1 flex justify-center items-start transition-transform duration-500 rounded-lg">
           <img src="@/assets/images/dice.png" alt="illustration" class="w-24 rounded-full border-4 border-black bg-black">
         </div>
-        <div data-text="perseverance" style="--r:5;" class="card pt-10 bg-violet-500 border-4 border-violet-700">
+        <div data-text="perseverance" style="--r:5;" class="card pt-8 bg-violet-500 border-4 border-violet-700 flex-1 flex justify-center items-start transition-transform duration-500 rounded-lg">
           <img src="@/assets/images/frogs.png" alt="illustration" class="w-24 rounded-full border-4 border-black bg-black">
         </div>
-        <div data-text="polyvalence" style="--r:25;" class="card pt-10 bg-orange-500 border-4 border-orange-700">
+        <div data-text="polyvalence" style="--r:25;" class="card pt-8 bg-orange-500 border-4 border-orange-700 flex-1 flex justify-center items-start transition-transform duration-500 rounded-lg">
           <img src="@/assets/images/ghost.png" alt="illustration" class="w-24 rounded-full border-4 border-black bg-black">
         </div>
       </div>
-
-      <div class="flex justify-center gap-2 w-full h-4/4 px-6 skills-grid">
-        <div class="hardskill bg-orange-500 h-full w-1/2 rounded-tr-3xl rounded-bl-3xl px-8 py-4 flex flex-col gap-2">
+      <div class="flex flex-col md:flex-row justify-center gap-2 w-full h-4/4 skills-grid px-4">
+        <div class="hardskill bg-orange-500 w-full md:w-1/2 rounded-tr-3xl rounded-bl-3xl px-6 py-4 flex flex-col gap-2">
           <div class="card-title uppercase font-black text-black text-2xl">dev stack</div>
           <ul class="text-black relative">
             <li class="sf">Symfony</li>
@@ -35,15 +28,15 @@
               <i class="pi pi-external-link" style="font-size: .5rem"></i></a></li>
           </ul>
         </div>
-        <div class="flex flex-col h-full w-1/2 gap-2">
-          <div class="hardskill bg-yellow-400 h-1/2 w-full rounded-tr-3xl rounded-bl-3xl px-8 py-4 flex flex-col gap-2">
+        <div class="flex flex-col w-full md:w-1/2 gap-2">
+          <div class="hardskill bg-yellow-400 h-1/2 rounded-tr-3xl rounded-bl-3xl px-6 py-4 flex flex-col gap-2">
             <div class="card-title uppercase font-black text-black text-2xl">graphisme</div>
             <ul class="text-black">
               <li>Suite Adobe Creative Cloud</li>
               <li>Figma</li>
             </ul>
           </div>
-          <div class="hardskill bg-violet-500 h-1/2 w-full rounded-br-3xl rounded-tl-3xl px-8 py-4">
+          <div class="hardskill bg-violet-500 h-1/2 rounded-br-3xl rounded-tl-3xl px-6 py-4">
             <div class="card-title uppercase font-black text-white text-2xl">objectifs</div>
             <ul class="text-white">
               <li>Qualité</li>
@@ -71,54 +64,42 @@
   left: -1rem;
 }
 
-.cards {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: fit-content;
-}
-
 .cards .card {
-  position: relative;
-  width: 160px;
-  height: 240px;
-  display: flex;
-  justify-content: center;
-  align-items: start;
-  transition: ease-in-out 0.5s;
-  border-radius: 10px;
-  margin: 0 -45px;
+  transition: 0.5s;
   transform: rotate(calc(var(--r) * 1deg));
 }
 
 .cards:hover .card {
   transform: rotate(0deg);
-  margin: 0 10px;
 }
 
 .cards .card::before {
   content: attr(data-text);
   position: absolute;
   bottom: 2rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   text-transform: uppercase;
   color: black;
   font-weight: bold;
 }
 
 @media (max-width: 768px) {
+  .cards {
+    flex-direction: column-reverse;
+    position: relative;
+  }
 
   .cards .card {
-    width: 120px;
-    height: 180px;
-    padding-top: 1rem;
+    width: 80%;
+    margin: -3rem 0;
+    padding: 1rem 0 2rem 0;
   }
 
   .cards .card::before {
     bottom: .5rem;
+  }
+
+  .cards:hover .card {
+    margin: 5px 0;
   }
 
   .cards .card img {
@@ -133,11 +114,32 @@
 @media (min-width: 768px) {
   .font-narse {
     font-size: 10rem;
-    line-height: normal;
   }
 
   #skills {
-    width: 40%;
+    width: 50%;
+  }
+
+  .cards {
+    flex-direction: row;
+    position: relative;
+    width: auto;
+  }
+
+  .cards .card {
+    width: 160px; /* Fixed width */
+    height: 200px; /* Fixed height to make them taller */
+    margin: 0 -45px; /* Negative margin for overlap */
+    padding: 2rem 0 0 0;
+    transition: all 0.5s ease; /* Smooth transition */
+  }
+
+  .cards .card::before {
+    bottom: .5rem;
+  }
+
+  .cards:hover .card {
+    margin: 0 10px; /* Adjust margin on hover to separate cards */
   }
 }
 </style>

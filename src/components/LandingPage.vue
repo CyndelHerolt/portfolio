@@ -19,16 +19,16 @@ onUnmounted(() => window.removeEventListener('scroll', handleScroll));
 </script>
 
 <template>
-  <div class="flex justify-center items-start pt-12">
+  <div class="flex justify-center items-start pt-12 relative px-4">
     <h1 ref="titleRef" class="uppercase select-none text-[10rem] font-narse font-extrabold text-pink-500 leading-[80%] mr-4">cyndel herolt</h1>
     <img ref="imgRef" src="@/assets/images/devil2.webp" alt="illustration devil" class="w-[300px] absolute bottom-0">
     <div class="flex flex-col items-start mt-12">
-      <small class="text-yellow-400 opacity-80">Cyndel Herolt</small>
-      <h2 class="leading-normal text-yellow-400">Développeuse web</h2>
-      <h3 class="opacity-80 mb-4">Fullstack</h3>
-      <div class="flex">
-        <small class="text-yellow-400 opacity-80 contact"><i class="pi pi-envelope"></i> &nbsp; cyndelherolt@gmail.com</small>
-        <small class="text-yellow-400 opacity-80 contact"><i class="pi pi-building"></i> &nbsp; URCA - IUT de Troyes</small>
+      <div class="text-yellow-400 opacity-80 text-md">Cyndel Herolt</div>
+      <h2 class="leading-normal text-yellow-400 text-lg font-black">Développeuse web</h2>
+      <h3 class="opacity-80 mb-4 text-lg font-black">Fullstack</h3>
+      <div class="flex contact">
+        <small class="text-yellow-400 opacity-80 text-base"><i class="pi pi-envelope"></i> &nbsp; cyndelherolt@gmail.com</small>
+        <small class="text-yellow-400 opacity-80 text-base"><i class="pi pi-building"></i> &nbsp; URCA - IUT de Troyes</small>
       </div>
     </div>
   </div>
@@ -43,6 +43,17 @@ onUnmounted(() => window.removeEventListener('scroll', handleScroll));
 }
 
 .contact {
-  writing-mode: vertical-lr;
+  flex-direction: column;
+}
+
+@media (max-width: 768px) {
+
+  .font-narse {
+    font-size: 8rem;
+  }
+
+  .contact {
+    writing-mode: vertical-lr;
+  }
 }
 </style>
