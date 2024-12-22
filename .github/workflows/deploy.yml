@@ -10,6 +10,9 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+    - name: Print GITHUB_WORKSPACE
+      run: echo "GITHUB_WORKSPACE is $GITHUB_WORKSPACE"
+
     - name: Checkout code
       uses: actions/checkout@v2
 
