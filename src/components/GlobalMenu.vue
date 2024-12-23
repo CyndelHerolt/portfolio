@@ -19,8 +19,8 @@ const handleToggleMenu = () => {
 </script>
 
 <template>
-  <i class="pi pi-microsoft mix-blend-difference z-10" @click="handleToggleMenu"></i>
-  <nav v-if="toggleMenu" class="fixed top-0 left-0 w-full h-screen flex justify-center items-center z-10">
+  <i class="pi pi-microsoft mix-blend-difference z-20" @click="handleToggleMenu"></i>
+  <nav v-if="toggleMenu" class="fixed top-0 left-0 w-full h-screen flex justify-center items-center z-20">
     <i class="pi pi-arrow-down-left-and-arrow-up-right-to-center" @click="handleToggleMenu"></i>
     <ul class="flex flex-wrap p-0 m-0 h-full">
       <li class="w-1/2 h-1/2 flex justify-center items-center text-center uppercase text-[10vw] font-bold hover:mix-blend-difference opacity-80">
