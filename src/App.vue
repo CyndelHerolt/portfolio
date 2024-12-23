@@ -41,9 +41,9 @@ onMounted(() => {
 <template>
   <div class="grain"></div>
   <div class="content-grid"></div>
-  <div class="dev-banner text-black text-xl bg-yellow-400 px-24 py-2 rotate-45 fixed top-24 shadow-md uppercase">
-    En cours de développement
-  </div>
+<!--  <div class="dev-banner text-black text-xl bg-yellow-400 px-24 py-2 rotate-45 fixed top-24 shadow-md uppercase">-->
+<!--    En cours de développement-->
+<!--  </div>-->
   <header>
     <GlobalMenu />
   </header>

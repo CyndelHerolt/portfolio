@@ -8,9 +8,9 @@ import Projects from '@/components/ProjectsSection.vue'
 
 <template>
   <main class="w-screen flex flex-col items-center gap-28">
-    <LandingLayout class="section h-screen w-full" />
-    <IdCard class="section h-screen w-full" />
-    <Skills class="section h-screen w-full" />
+    <LandingLayout class="section min-h-screen w-full" />
+    <IdCard class="section min-h-screen w-full" />
+    <Skills class="section min-h-screen w-full" />
     <Projects class="section w-full"/>
   </main>
 </template>
