@@ -16,7 +16,7 @@ const projets = [
     banner: 'roylunetier.png',
     description: 'Viewer et configurateur 3D',
     images: 'https://via.placeholder.com/150',
-    link: 'https://www.google.com',
+    link: 'https://roy-lunettier.vercel.app',
   },
   {
     title: 'EscapeGame',
@@ -24,7 +24,7 @@ const projets = [
     banner: 'vr.png',
     description: 'Escape Game en réalité virtuelle',
     images: 'https://via.placeholder.com/150',
-    link: 'https://www.google.com',
+    link: 'https://wr507-escape-game.vercel.app',
   }
 ];
 
